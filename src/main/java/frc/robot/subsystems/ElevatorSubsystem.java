@@ -28,15 +28,15 @@ public class ElevatorSubsystem extends SubsystemBase {
   private TalonFX m_elevatorKrakenLeft;
   private TalonFX m_elevatorKrakenRight;
   private TalonFXConfiguration krakenConfig;
-  Distance currentLeftPosition = (Distance) Units.Inches.of(0);
-  Distance currentRightPosition = (Distance) Units.Inches.of(0);
-  private Distance lastDesiredPosition;
+  Measure<Distance> currentLeftPosition = Units.Inches.of(0);
+  Measure<Distance> currentRightPosition = Units.Inches.of(0);
+  private Measure<Distance> lastDesiredPosition;
 
   // Creates new elevator
   public ElevatorSubsystem() {
 
     // Last position is home position
-    lastDesiredPosition = (Distance) Units.Inches.of(0);
+    lastDesiredPosition = Units.Inches.of(0);
 
     // Krakens
     m_elevatorKrakenLeft = new TalonFX(MotorIDConstants.k_elevatorKrakenLeftID);
@@ -75,8 +75,8 @@ public class ElevatorSubsystem extends SubsystemBase {
   }
 
   // Gets current position of elevator
-  public Distance getElevatorPosition() {
-    return (Distance) Units.Inches.of(m_elevatorKrakenRight.getPosition().getValueAsDouble());
+  public Measure<Distance> getElevatorPosition() {
+    return Units.Inches.of(m_elevatorKrakenRight.getPosition().getValueAsDouble());
   }
 
   // Moves the elevator to position
@@ -89,7 +89,7 @@ public class ElevatorSubsystem extends SubsystemBase {
     m_elevatorKrakenLeft.setControl(new Follower(m_elevatorKrakenRight.getDeviceID(), true));
 
     // Updates the last desired position
-    lastDesiredPosition = (Distance) height;
+    lastDesiredPosition = height;
   }
 
   // Sets motors to neutral mode
@@ -106,8 +106,8 @@ public class ElevatorSubsystem extends SubsystemBase {
 
   public void periodic() {
     // This method will be called once per scheduler run
-    currentLeftPosition = (Distance) Units.Inches.of(m_elevatorKrakenLeft.getPosition().getValueAsDouble());
-    currentRightPosition = (Distance) Units.Inches.of(m_elevatorKrakenRight.getPosition().getValueAsDouble());
+    currentLeftPosition = Units.Inches.of(m_elevatorKrakenLeft.getPosition().getValueAsDouble());
+    currentRightPosition = Units.Inches.of(m_elevatorKrakenRight.getPosition().getValueAsDouble());
     SmartDashboard.putNumber("Elevator/Left/Pos", m_elevatorKrakenLeft.getPosition().getValueAsDouble());
     SmartDashboard.putNumber("Elevator/Left/CLO", m_elevatorKrakenLeft.getClosedLoopOutput().getValueAsDouble());
     SmartDashboard.putNumber("Elevator/Left/Output", m_elevatorKrakenLeft.get());
