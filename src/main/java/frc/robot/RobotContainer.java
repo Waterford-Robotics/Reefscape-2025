@@ -26,7 +26,7 @@ public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
   private final SwerveSubsystem m_swerveSubsystem = new SwerveSubsystem();
-  // private final ElevatorSubsystem m_elevatorSubsystem = new ElevatorSubsystem();
+  private final ElevatorSubsystem m_elevatorSubsystem = new ElevatorSubsystem();
 
   // Create New Choosing Option in SmartDashboard for Autos
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -59,15 +59,30 @@ public class RobotContainer {
   private void configureBindings() {
 
     // Raise Elevator to L1 - "A" Button
-    /*
+    
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_A)
       .onTrue(
         new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL1Height), m_elevatorSubsystem)
       );
-    */
+
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_B)
+      .onTrue(
+        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL2Height), m_elevatorSubsystem)
+      );
+
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_X)
+      .onTrue(
+        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL3Height), m_elevatorSubsystem)
+      );
+
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_Y)
+      .onTrue(
+        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL4Height), m_elevatorSubsystem)
+      );
+    
 
     // Example Path yay - "A" Button
-    new JoystickButton(m_driverController.getHID(), DriveConstants.k_A)
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_lefttrig)
       .onTrue(
         new InstantCommand(() -> m_swerveSubsystem.followPathAutobuilderCommand("Example Path RED"), m_swerveSubsystem)
       );
