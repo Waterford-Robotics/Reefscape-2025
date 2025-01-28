@@ -82,8 +82,8 @@ public class RobotContainer {
       );
     
 
-    // Example Path yay - "A" Button
-    new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_lefttrig) > 0.05)
+    // Example Path yay - "start" Button
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_start)
       .onTrue(
         new InstantCommand(() -> m_swerveSubsystem.followPathAutobuilderCommand("Example Path RED"), m_swerveSubsystem)
       );
