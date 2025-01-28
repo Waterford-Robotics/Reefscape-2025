@@ -8,6 +8,7 @@ import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.ReplanningConfig;
 
+import edu.wpi.first.units.Angle;
 import edu.wpi.first.units.Distance;
 import edu.wpi.first.units.Measure;
 import edu.wpi.first.units.Units;
@@ -38,6 +39,7 @@ public final class Constants {
 
     // Driver Controls 
     public final static int k_rightbump = Button.kRightBumper.value; // Right Bump
+    public final static int k_leftbump = Button.kLeftBumper.value; // Right Bump
     public final static int k_righttrig = Axis.kRightTrigger.value; // Right Trig
     public final static int k_lefttrig = Axis.kLeftTrigger.value; // Left Trig
     public final static int k_start = Button.kStart.value; // Start Button
@@ -53,6 +55,8 @@ public final class Constants {
     // Elevator
     public static final int k_elevatorKrakenLeftID = 21;
     public static final int k_elevatorKrakenRightID = 22;
+    public static final int k_wristKrakenID = 23;
+    public static final int k_shooterKrakenID = 24;
   }
 
   // Constants for Sensor IDs
@@ -71,11 +75,21 @@ public final class Constants {
     public static final Measure<Distance> k_coralL4Height = Units.Inches.of(40);
   }
 
+  // Constants for Wrist
+  public static final class WristConstants { // TODO: Change us!
+    public static final Measure<Angle> k_wrist1Height = Units.Degrees.of(45); 
+    public static final Measure<Angle> k_wrist2Height = Units.Degrees.of(90);
+    public static final Measure<Angle> k_coralIntakeHeight = Units.Degrees.of(135);
+  }
+
   // Constants for Motors
   public static final class MotorConstants {
-    public static final double k_rampRate = 0.05;
-    public static final double k_closedMaxSpeed = 0.8;
-    public static final int k_supplyCurrentLimit = 40;
+    public static final double k_elevatorRampRate = 0.05;
+    public static final double k_elevatorClosedMaxSpeed = 0.8;
+    public static final int k_elevatorSupplyCurrentLimit = 40;
+    public static final double k_wristRampRate = 0.05;
+    public static final double k_wristClosedMaxSpeed = 0.3;
+    public static final int k_wristSupplyCurrentLimit = 40;
   }
 
   // Constants for PID
@@ -86,6 +100,12 @@ public final class Constants {
     public static final double k_elevatorkS = 0.0;
     public static final double k_elevatorkV = 0.0;
     public static final double k_elevatorkG = 0.0;
+    public static final double k_wristP = 0.0;
+    public static final double k_wristI = 0.0;
+    public static final double k_wristD = 0.0;
+    public static final double k_wristS = 0.0;
+    public static final double k_wristV = 0.0;
+    public static final double k_wristG = 0.0;
   }
 
   // Constants for Autonomous

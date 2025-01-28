@@ -7,9 +7,10 @@ package frc.robot;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.ElevatorConstants;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.Constants.WristConstants;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
-
+import frc.robot.subsystems.WristSubsystem;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 // This class is where the bulk of the robot should be declared.  Since Command-based is a
 // "declarative" paradigm, very little robot logic should actually be handled in the Robot
@@ -27,6 +29,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final SwerveSubsystem m_swerveSubsystem = new SwerveSubsystem();
   // private final ElevatorSubsystem m_elevatorSubsystem = new ElevatorSubsystem();
+  private final WristSubsystem m_wristSubsystem = new WristSubsystem();
 
   // Create New Choosing Option in SmartDashboard for Autos
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -66,8 +69,20 @@ public class RobotContainer {
       );
     */
 
-    // Example Path yay - "A" Button
-    new JoystickButton(m_driverController.getHID(), DriveConstants.k_A)
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_rightbump)
+      .onTrue(
+        new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_wrist1Height))
+      );
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_leftbump)
+      .onTrue(
+        new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_wrist2Height))
+      );
+    new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_righttrig) > 0.05)
+      .onTrue(
+        new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_coralIntakeHeight))
+      );
+    // Example Path yay - "left trigger" Button
+    new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_lefttrig) > 0.05)
       .onTrue(
         new InstantCommand(() -> m_swerveSubsystem.followPathAutobuilderCommand("Example Path RED"), m_swerveSubsystem)
       );
