@@ -79,10 +79,14 @@ public class RobotContainer {
       );
     new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_righttrig) > 0.05)
       .onTrue(
-        new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_coralIntakeHeight))
+        new InstantCommand(() -> m_wristSubsystem.intake())
       );
-    // Example Path yay - "left trigger" Button
     new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_lefttrig) > 0.05)
+      .onTrue(
+        new InstantCommand(() -> m_wristSubsystem.shoot())
+      );
+    // Example Path yay - "start" Button
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_start)
       .onTrue(
         new InstantCommand(() -> m_swerveSubsystem.followPathAutobuilderCommand("Example Path RED"), m_swerveSubsystem)
       );

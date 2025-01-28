@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants.MotorConstants;
 import frc.robot.Constants.MotorIDConstants;
 import frc.robot.Constants.MotorPIDConstants;
+import frc.robot.Constants.WristConstants;
 
 public class WristSubsystem {
     private TalonFX m_wrist;
@@ -62,6 +63,13 @@ public class WristSubsystem {
     }
     public void resetSensorPosition(Measure<Angle> setpoint) {
         m_wrist.setPosition(setpoint.in(Units.Degrees));
+    }
+    public void shoot(){
+        m_shooter.set(0.5);
+    }
+    public void intake(){
+        m_wrist.setPosition(WristConstants.k_coralIntakeHeight.in(Units.Degrees));
+        m_shooter.set(-0.5);
     }
     public void periodic() {
     // This method will be called once per scheduler run
