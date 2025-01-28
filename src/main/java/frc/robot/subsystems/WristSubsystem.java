@@ -41,7 +41,7 @@ public class WristSubsystem {
         krakenConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
         krakenConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_wristSupplyCurrentLimit;
         krakenConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
-        krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; // No breaking elevator
+        krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; 
         krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Degrees.of(160).in(Units.Degrees); // TODO: Check me
         krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
         krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Degrees.of(20).in(Units.Degrees); // Starting position
