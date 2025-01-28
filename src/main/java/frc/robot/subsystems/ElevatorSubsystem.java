@@ -54,11 +54,11 @@ public class ElevatorSubsystem extends SubsystemBase {
     krakenConfig.Slot0.kG = MotorPIDConstants.k_elevatorkG;
 
     // Kraken Configs
-    krakenConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_rampRate;
-    krakenConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_closedMaxSpeed;
-    krakenConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_closedMaxSpeed;
+    krakenConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_elevatorRampRate;
+    krakenConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_elevatorClosedMaxSpeed;
+    krakenConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_elevatorClosedMaxSpeed;
     krakenConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    krakenConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_supplyCurrentLimit;
+    krakenConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_elevatorSupplyCurrentLimit;
     krakenConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
     krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; // No breaking elevator
     krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Inches.of(20).in(Units.Inches); // TODO: Check me

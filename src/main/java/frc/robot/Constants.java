@@ -73,9 +73,9 @@ public final class Constants {
 
   // Constants for Motors
   public static final class MotorConstants {
-    public static final double k_rampRate = 0.05;
-    public static final double k_closedMaxSpeed = 0.8;
-    public static final int k_supplyCurrentLimit = 40;
+    public static final double k_elevatorRampRate = 0.05;
+    public static final double k_elevatorClosedMaxSpeed = 0.8;
+    public static final int k_elevatorSupplyCurrentLimit = 40;
   }
 
   // Constants for PID
