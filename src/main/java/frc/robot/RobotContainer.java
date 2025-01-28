@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 // This class is where the bulk of the robot should be declared.  Since Command-based is a
 // "declarative" paradigm, very little robot logic should actually be handled in the Robot
@@ -82,7 +83,7 @@ public class RobotContainer {
     
 
     // Example Path yay - "A" Button
-    new JoystickButton(m_driverController.getHID(), DriveConstants.k_lefttrig)
+    new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_lefttrig) > 0.05)
       .onTrue(
         new InstantCommand(() -> m_swerveSubsystem.followPathAutobuilderCommand("Example Path RED"), m_swerveSubsystem)
       );
