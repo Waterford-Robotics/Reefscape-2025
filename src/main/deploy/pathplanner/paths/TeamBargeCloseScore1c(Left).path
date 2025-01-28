@@ -1,5 +1,5 @@
 {
-  "version": "2025.0",
+  "version": 1.0,
   "waypoints": [
     {
       "anchor": {
@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.223391822844034,
-        "y": 5.609906941965821
+        "x": 6.369058212532976,
+        "y": 6.556408749141264
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.996360180735853,
-        "y": 5.35
+        "x": 5.5,
+        "y": 5.3
       },
       "prevControl": {
-        "x": 3.803523897829891,
-        "y": 5.579813332935693
+        "x": 6.315182478850233,
+        "y": 6.271496647789619
       },
       "nextControl": null,
       "isLocked": false,
@@ -30,25 +30,23 @@
   ],
   "rotationTargets": [],
   "constraintZones": [],
-  "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
-    "maxAngularAcceleration": 720.0,
-    "nominalVoltage": 12.0,
-    "unlimited": false
+    "maxAngularAcceleration": 720.0
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -59.99999999999999
+    "rotation": -120.0,
+    "rotateFast": false
   },
   "reversed": false,
   "folder": "Team Side 1c",
-  "idealStartingState": {
-    "velocity": 0,
-    "rotation": 0.0
+  "previewStartingState": {
+    "rotation": 180.0,
+    "velocity": 0
   },
   "useDefaultConstraints": true
 }
