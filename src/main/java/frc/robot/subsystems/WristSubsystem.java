@@ -42,9 +42,9 @@ public class WristSubsystem {
         krakenConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_wristSupplyCurrentLimit;
         krakenConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
         krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; // No breaking elevator
-        krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Inches.of(10).in(Units.Inches); // TODO: Check me
+        krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Degrees.of(160).in(Units.Degrees); // TODO: Check me
         krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-        krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Inches.of(0).in(Units.Inches); // Starting position
+        krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Degrees.of(20).in(Units.Degrees); // Starting position
         krakenConfig.Slot0.GravityType = GravityTypeValue.Arm_Cosine;
 
         krakenConfig.Feedback.SensorToMechanismRatio = 0.4545;
