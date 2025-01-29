@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.504975615003945,
-        "y": 4.191059133615434
+        "x": 4.0,
+        "y": 5.35
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.749102656447326,
-        "y": 4.191059133615434
+        "x": 2.609823258196721,
+        "y": 7.320750085382514
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 6.05747507709962,
-        "y": 4.191059133615434
+        "x": 1.6982581967213115,
+        "y": 7.6703914788251355
       },
       "prevControl": {
-        "x": 6.530533872625053,
-        "y": 4.191059133615434
+        "x": 2.1103355532786883,
+        "y": 7.483083589480874
       },
       "nextControl": null,
       "isLocked": false,
@@ -39,13 +39,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0,
-    "rotateFast": false
+    "rotation": 125.0,
+    "rotateFast": true
   },
   "reversed": false,
-  "folder": "Leave 0c + center 1c",
+  "folder": "Team Side 1.5c",
   "previewStartingState": {
-    "rotation": -179.49297093908524,
+    "rotation": -60.0,
     "velocity": 0
   },
   "useDefaultConstraints": true

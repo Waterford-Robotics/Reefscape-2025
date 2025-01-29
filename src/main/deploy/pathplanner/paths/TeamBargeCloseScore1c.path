@@ -39,11 +39,11 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -118.44292862436329,
+    "rotation": -120.0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Team Side 1c",
   "previewStartingState": {
     "rotation": 180.0,
     "velocity": 0
