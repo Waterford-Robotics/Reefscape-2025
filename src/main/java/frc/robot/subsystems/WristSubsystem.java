@@ -12,12 +12,13 @@ import edu.wpi.first.units.Angle;
 import edu.wpi.first.units.Measure;
 import edu.wpi.first.units.Units;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
 import frc.robot.Constants.MotorIDConstants;
 import frc.robot.Constants.MotorPIDConstants;
 import frc.robot.Constants.WristConstants;
 
-public class WristSubsystem {
+public class WristSubsystem extends SubsystemBase{
     private TalonFX m_wrist;
     private TalonFX m_shooter;
     private TalonFXConfiguration krakenConfig;
@@ -66,6 +67,9 @@ public class WristSubsystem {
     }
     public void shoot(){
         m_shooter.set(0.5);
+    }
+    public void stopShooter(){
+        m_shooter.set(0);
     }
     public void intake(){
         m_wrist.setPosition(WristConstants.k_coralIntakeHeight.in(Units.Degrees));

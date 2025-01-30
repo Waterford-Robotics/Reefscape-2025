@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
+
 // This class is where the bulk of the robot should be declared.  Since Command-based is a
 // "declarative" paradigm, very little robot logic should actually be handled in the Robot
 // periodic methods (other than the scheduler calls).  Instead, the structure of the robot
@@ -82,8 +83,8 @@ public class RobotContainer {
         new InstantCommand(() -> m_wristSubsystem.intake())
       );
     new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_lefttrig) > 0.05)
-      .onTrue(
-        new InstantCommand(() -> m_wristSubsystem.shoot())
+      .whileTrue(
+        m_wristSubsystem.startEnd(m_wristSubsystem::shoot, m_wristSubsystem::stopShooter)
       );
     // Example Path yay - "start" Button
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_start)
