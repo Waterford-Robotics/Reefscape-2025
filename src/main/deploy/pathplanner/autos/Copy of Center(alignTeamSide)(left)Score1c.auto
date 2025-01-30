@@ -1,0 +1,25 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 8.08554730854606,
+      "y": 4.050678644099149
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "CenterScore1c(left)"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "score 1c",
+  "choreoAuto": false
+}

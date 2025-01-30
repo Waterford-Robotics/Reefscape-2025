@@ -1,0 +1,25 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 7.45,
+      "y": 0.53
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "OppositeBargeLeave0c"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "leaves",
+  "choreoAuto": false
+}

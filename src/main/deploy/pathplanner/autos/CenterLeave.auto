@@ -1,0 +1,25 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 7.489241913504984,
+      "y": 4.05
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "CenterLeave0c"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "leaves",
+  "choreoAuto": false
+}

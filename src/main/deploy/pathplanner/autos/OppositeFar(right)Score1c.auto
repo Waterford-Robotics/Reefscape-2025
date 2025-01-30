@@ -1,0 +1,31 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 7.5,
+      "y": 0.5251066843577423
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "OppositeBargeFarScore1c(right)"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreOrSmth"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "score 1c",
+  "choreoAuto": false
+}

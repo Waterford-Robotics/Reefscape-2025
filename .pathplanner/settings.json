@@ -9,7 +9,10 @@
     "Opposite Side 1.5c",
     "Leave 0c + center 1c"
   ],
-  "autoFolders": [],
+  "autoFolders": [
+    "score 1c",
+    "leaves"
+  ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
   "defaultMaxAngVel": 540.0,
