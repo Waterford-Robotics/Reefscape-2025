@@ -55,8 +55,10 @@ public final class Constants {
     // Elevator
     public static final int k_elevatorKrakenLeftID = 21;
     public static final int k_elevatorKrakenRightID = 22;
-    public static final int k_wristKrakenID = 23;
-    public static final int k_shooterKrakenID = 24;
+
+    // Wrist
+    public static final int k_wristKrakenID = 31;
+    public static final int k_shooterKrakenID = 32;
   }
 
   // Constants for Sensor IDs
