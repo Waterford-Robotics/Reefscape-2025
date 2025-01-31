@@ -10,8 +10,9 @@
     "Leave 0c + center 1c"
   ],
   "autoFolders": [
-    "score 1c",
-    "leaves"
+    "leaves",
+    "score 1.5c",
+    "score 1c"
   ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,

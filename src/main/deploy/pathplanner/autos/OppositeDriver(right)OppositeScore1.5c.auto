@@ -3,7 +3,7 @@
   "startingPose": {
     "position": {
       "x": 7.5,
-      "y": 7.9042126873700065
+      "y": 0.5251066843577423
     },
     "rotation": 180.0
   },
@@ -14,7 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "TeamBargeDriverScore1c(left)"
+            "pathName": "OppositeBargeDriverScore1c(right)"
           }
         },
         {
@@ -22,10 +22,16 @@
           "data": {
             "name": "ScoreOrSmth"
           }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Driver(right)(Opposite)Score1.5c"
+          }
         }
       ]
     }
   },
-  "folder": "score 1c",
+  "folder": "score 1.5c",
   "choreoAuto": false
 }

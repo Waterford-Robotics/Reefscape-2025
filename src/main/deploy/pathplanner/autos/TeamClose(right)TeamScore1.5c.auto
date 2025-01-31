@@ -14,7 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "TeamBargeDriverScore1c(left)"
+            "pathName": "TeamBargeCloseScore1c(right)"
           }
         },
         {
@@ -22,10 +22,16 @@
           "data": {
             "name": "ScoreOrSmth"
           }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Team(right)CloseScore1.5c"
+          }
         }
       ]
     }
   },
-  "folder": "score 1c",
+  "folder": "score 1.5c",
   "choreoAuto": false
 }
