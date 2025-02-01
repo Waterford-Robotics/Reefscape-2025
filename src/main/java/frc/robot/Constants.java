@@ -80,7 +80,7 @@ public final class Constants {
 
   // Constants for PID
   public static final class MotorPIDConstants {
-    public static final double k_elevatorkP = 0.0;
+    public static final double k_elevatorkP = 1;
     public static final double k_elevatorkI = 0.0;
     public static final double k_elevatorkD = 0.0;
     public static final double k_elevatorkS = 0.0;

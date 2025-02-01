@@ -39,8 +39,8 @@ public class ElevatorSubsystem extends SubsystemBase {
     lastDesiredPosition = Units.Inches.of(0);
 
     // Krakens
-    m_elevatorKrakenLeft = new TalonFX(MotorIDConstants.k_elevatorKrakenLeftID);
-    m_elevatorKrakenRight = new TalonFX(MotorIDConstants.k_elevatorKrakenRightID);
+    m_elevatorKrakenLeft = new TalonFX(MotorIDConstants.k_elevatorKrakenLeftID, "Elevator/Coral");
+    m_elevatorKrakenRight = new TalonFX(MotorIDConstants.k_elevatorKrakenRightID, "Elevator/Coral");
 
     // Init krakenConfig
     krakenConfig = new TalonFXConfiguration();
