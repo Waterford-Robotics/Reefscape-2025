@@ -74,18 +74,28 @@ public class RobotContainer {
       .onTrue(
         new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_wrist1Height))
       );
+
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_leftbump)
       .onTrue(
         new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_wrist2Height))
       );
+
     new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_righttrig) > 0.05)
-      .onTrue(
-        new InstantCommand(() -> m_wristSubsystem.intake())
+      .whileTrue(
+        new InstantCommand(() -> m_wristSubsystem.intake(), m_wristSubsystem)
+      )
+      .whileFalse(
+        new InstantCommand(() -> m_wristSubsystem.stopShooter(), m_wristSubsystem)
       );
+
     new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_lefttrig) > 0.05)
       .whileTrue(
-        m_wristSubsystem.startEnd(m_wristSubsystem::shoot, m_wristSubsystem::stopShooter)
+        new InstantCommand(() -> m_wristSubsystem.shoot(), m_wristSubsystem)
+      )
+      .whileFalse(
+        new InstantCommand(() -> m_wristSubsystem.stopShooter(), m_wristSubsystem)
       );
+
     // Example Path yay - "start" Button
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_start)
       .onTrue(

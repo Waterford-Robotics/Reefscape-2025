@@ -79,9 +79,9 @@ public final class Constants {
 
   // Constants for Wrist
   public static final class WristConstants { // TODO: Change us!
-    public static final Measure<Angle> k_wrist1Height = Units.Degrees.of(45); 
-    public static final Measure<Angle> k_wrist2Height = Units.Degrees.of(90);
-    public static final Measure<Angle> k_coralIntakeHeight = Units.Degrees.of(135);
+    public static final Measure<Angle> k_wrist1Height = Units.Radians.of(0.7); 
+    public static final Measure<Angle> k_wrist2Height = Units.Radians.of(0.7);
+    public static final Measure<Angle> k_coralIntakeAngle = Units.Radians.of(1);
   }
 
   // Constants for Motors
@@ -89,9 +89,9 @@ public final class Constants {
     public static final double k_elevatorRampRate = 0.05;
     public static final double k_elevatorClosedMaxSpeed = 0.8;
     public static final int k_elevatorSupplyCurrentLimit = 40;
-    public static final double k_wristRampRate = 0.05;
-    public static final double k_wristClosedMaxSpeed = 0.3;
-    public static final int k_wristSupplyCurrentLimit = 40;
+    public static final double k_shooterRampRate = 0.05;
+    public static final double k_shooterClosedMaxSpeed = 0.3;
+    public static final int k_supplyCurrentLimit = 40;
   }
 
   // Constants for PID
@@ -102,12 +102,20 @@ public final class Constants {
     public static final double k_elevatorkS = 0.0;
     public static final double k_elevatorkV = 0.0;
     public static final double k_elevatorkG = 0.0;
+
     public static final double k_wristP = 0.0;
     public static final double k_wristI = 0.0;
     public static final double k_wristD = 0.0;
     public static final double k_wristS = 0.0;
     public static final double k_wristV = 0.0;
     public static final double k_wristG = 0.0;
+    
+    public static final double k_shooterkP = 0.0;
+    public static final double k_shooterkI = 0.0;
+    public static final double k_shooterkD = 0.0;
+    public static final double k_shooterkS = 0.0;
+    public static final double k_shooterkV = 0.0;
+    public static final double k_shooterkG = 0.0;
   }
 
   // Constants for Autonomous

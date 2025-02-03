@@ -19,47 +19,72 @@ import frc.robot.Constants.MotorPIDConstants;
 import frc.robot.Constants.WristConstants;
 
 public class WristSubsystem extends SubsystemBase{
+
   private TalonFX m_wrist;
   private TalonFX m_shooter;
-  private TalonFXConfiguration krakenConfig;
+
+  private TalonFXConfiguration wristConfig;
+  private TalonFXConfiguration shooterConfig;
+
   private Measure<Angle> lastDesiredPosition;
+
   public WristSubsystem() {
     
-    m_wrist = new TalonFX(MotorIDConstants.k_wristKrakenID);
-    m_shooter = new TalonFX(MotorIDConstants.k_shooterKrakenID);
-    lastDesiredPosition = Units.Degrees.of(0);
+    m_wrist = new TalonFX(MotorIDConstants.k_wristKrakenID, "Elevator/Coral");
+    m_shooter = new TalonFX(MotorIDConstants.k_shooterKrakenID, "Elevator/Coral");
 
-    krakenConfig = new TalonFXConfiguration();
-    krakenConfig.Slot0.kP = MotorPIDConstants.k_wristP;
-    krakenConfig.Slot0.kI = MotorPIDConstants.k_wristI;
-    krakenConfig.Slot0.kD = MotorPIDConstants.k_wristD;
-    krakenConfig.Slot0.kS = MotorPIDConstants.k_wristS;
-    krakenConfig.Slot0.kV = MotorPIDConstants.k_wristV;
-    krakenConfig.Slot0.kG = MotorPIDConstants.k_wristG;
+    lastDesiredPosition = Units.Radians.of(0);
 
-    krakenConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_wristRampRate;
-    krakenConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_wristClosedMaxSpeed;
-    krakenConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_wristClosedMaxSpeed;
-    krakenConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    krakenConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_wristSupplyCurrentLimit;
-    krakenConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
-    krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; 
-    krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Degrees.of(160).in(Units.Degrees); // TODO: Check me
-    krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Degrees.of(20).in(Units.Degrees); // Starting position
-    krakenConfig.Slot0.GravityType = GravityTypeValue.Arm_Cosine;
+    wristConfig = new TalonFXConfiguration();
+    wristConfig.Slot0.kP = MotorPIDConstants.k_wristP;
+    wristConfig.Slot0.kI = MotorPIDConstants.k_wristI;
+    wristConfig.Slot0.kD = MotorPIDConstants.k_wristD;
+    wristConfig.Slot0.kS = MotorPIDConstants.k_wristS;
+    wristConfig.Slot0.kV = MotorPIDConstants.k_wristV;
+    wristConfig.Slot0.kG = MotorPIDConstants.k_wristG;
 
-    krakenConfig.Feedback.SensorToMechanismRatio = 0.4545;
+    // wristConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_wristRampRate;
+    // wristConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_wristClosedMaxSpeed;
+    // wristConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_wristClosedMaxSpeed;
+    wristConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    wristConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_supplyCurrentLimit;
+    // wristConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
+    wristConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; 
+    wristConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Radians.of(0.7).in(Units.Radians); // TODO: Check me
+    wristConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
+    wristConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Radians.of(2).in(Units.Radians); // Starting position
+    wristConfig.Slot0.GravityType = GravityTypeValue.Arm_Cosine;
 
-    m_wrist.getConfigurator().apply(krakenConfig, 0.05);
+    wristConfig.Feedback.SensorToMechanismRatio = 0.4545;
+
+    shooterConfig = new TalonFXConfiguration();
+
+    // PID Stuff (Shooter)
+    shooterConfig.Slot0.kP = MotorPIDConstants.k_shooterkP;
+    shooterConfig.Slot0.kI = MotorPIDConstants.k_shooterkI;
+    shooterConfig.Slot0.kD = MotorPIDConstants.k_shooterkD;
+    shooterConfig.Slot0.kS = MotorPIDConstants.k_shooterkS;
+    shooterConfig.Slot0.kV = MotorPIDConstants.k_shooterkV;
+
+    // Kraken Configs
+    shooterConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_shooterRampRate;
+    shooterConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_shooterClosedMaxSpeed;
+    shooterConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_shooterClosedMaxSpeed;
+    shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    shooterConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_supplyCurrentLimit;
+
+    m_wrist.getConfigurator().apply(wristConfig, 0.05);
+    m_shooter.getConfigurator().apply(shooterConfig, 0.05);
+
+    m_wrist.setInverted(true);
   }
 
     public Measure<Angle> getWristPosition(){
-      return Units.Degrees.of(m_wrist.get());
+      return Units.Radians.of(m_wrist.get());
     }
 
     public void setPosition(Measure<Angle> angle){
-      m_wrist.setControl(new PositionVoltage(angle.in(Units.Degrees)));
+      m_wrist.setControl(new PositionVoltage(angle.in(Units.Radians)));
       lastDesiredPosition = angle;
     }
 
@@ -68,7 +93,7 @@ public class WristSubsystem extends SubsystemBase{
     }
 
     public void resetSensorPosition(Measure<Angle> setpoint) {
-      m_wrist.setPosition(setpoint.in(Units.Degrees));
+      m_wrist.setPosition(setpoint.in(Units.Radians));
     }
 
     public void shoot(){
@@ -80,7 +105,7 @@ public class WristSubsystem extends SubsystemBase{
     }
 
     public void intake(){
-      m_wrist.setPosition(WristConstants.k_coralIntakeHeight.in(Units.Degrees));
+      // m_wrist.setPosition(WristConstants.k_coralIntakeHeight.in(Units.Radians));
       m_shooter.set(-0.5);
     }
 
@@ -91,7 +116,5 @@ public class WristSubsystem extends SubsystemBase{
       SmartDashboard.putNumber("Wrist/Output", m_wrist.get());
       SmartDashboard.putNumber("Wrist/Inverted", m_wrist.getAppliedRotorPolarity().getValueAsDouble());
       SmartDashboard.putNumber("Wrist/Current", m_wrist.getSupplyCurrent().getValueAsDouble());
-
-    // SmartDashboard.putNumber("Wrist/Last Desired Position", (double) lastDesiredPosition.toString()); 
   }
 }
