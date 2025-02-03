@@ -16,10 +16,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-
 
 // This class is where the bulk of the robot should be declared.  Since Command-based is a
 // "declarative" paradigm, very little robot logic should actually be handled in the Robot
@@ -29,7 +29,8 @@ public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
   private final SwerveSubsystem m_swerveSubsystem = new SwerveSubsystem();
-  // private final ElevatorSubsystem m_elevatorSubsystem = new ElevatorSubsystem();
+
+  private final ElevatorSubsystem m_elevatorSubsystem = new ElevatorSubsystem();
   private final WristSubsystem m_wristSubsystem = new WristSubsystem();
 
   // Create New Choosing Option in SmartDashboard for Autos
@@ -63,12 +64,14 @@ public class RobotContainer {
   private void configureBindings() {
 
     // Raise Elevator to L1 - "A" Button
-    /*
+    
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_A)
       .onTrue(
-        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL1Height), m_elevatorSubsystem)
+        new SequentialCommandGroup(
+          new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_zeroHeight), m_elevatorSubsystem),
+          new InstantCommand(() -> m_elevatorSubsystem.setNeutral(), m_elevatorSubsystem)
+        )
       );
-    */
 
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_rightbump)
       .onTrue(
@@ -94,6 +97,20 @@ public class RobotContainer {
       )
       .whileFalse(
         new InstantCommand(() -> m_wristSubsystem.stopShooter(), m_wristSubsystem)
+      );
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_B)
+      .onTrue(
+        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL2Height), m_elevatorSubsystem)
+      );
+
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_X)
+      .onTrue(
+        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL3Height), m_elevatorSubsystem)
+      );
+
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_Y)
+      .onTrue(
+        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL4Height), m_elevatorSubsystem)
       );
 
     // Example Path yay - "start" Button
