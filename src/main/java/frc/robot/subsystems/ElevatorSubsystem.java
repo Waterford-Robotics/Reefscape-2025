@@ -52,26 +52,32 @@ public class ElevatorSubsystem extends SubsystemBase {
     krakenConfig.Slot0.kS = MotorPIDConstants.k_elevatorkS;
     krakenConfig.Slot0.kV = MotorPIDConstants.k_elevatorkV;
     krakenConfig.Slot0.kG = MotorPIDConstants.k_elevatorkG;
+    krakenConfig.Slot0.kA = MotorPIDConstants.k_elevatorkA;
 
     // Kraken Configs
-    krakenConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_elevatorRampRate;
-    krakenConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_elevatorClosedMaxSpeed;
-    krakenConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_elevatorClosedMaxSpeed;
+    // krakenConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_elevatorRampRate;
+    // krakenConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_elevatorClosedMaxSpeed;
+    // krakenConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_elevatorClosedMaxSpeed;
     krakenConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     krakenConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_elevatorSupplyCurrentLimit;
-    krakenConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
+    // krakenConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
+
     krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; // No breaking elevator
-    krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Inches.of(20).in(Units.Inches); // TODO: Check me
+    krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Inches.of(49).in(Units.Inches); // TODO: Check me
     krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
     krakenConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Inches.of(0).in(Units.Inches); // Starting position
+
     krakenConfig.Slot0.GravityType = GravityTypeValue.Elevator_Static;
     
     // Elevator motors will provide feedback in INCHES the carriage has moved
     krakenConfig.Feedback.SensorToMechanismRatio = 0.4545;
 
     // Apply Configs, Inversion, Control requests
-    m_elevatorKrakenLeft.getConfigurator().apply(krakenConfig, 0.05);
-    m_elevatorKrakenRight.getConfigurator().apply(krakenConfig, 0.05);
+    m_elevatorKrakenLeft.getConfigurator().apply(krakenConfig, 0.5);
+    m_elevatorKrakenRight.getConfigurator().apply(krakenConfig, 0.5);
+
+    m_elevatorKrakenLeft.setInverted(false);
+    m_elevatorKrakenRight.setInverted(false);
   }
 
   // Gets current position of elevator
@@ -86,7 +92,7 @@ public class ElevatorSubsystem extends SubsystemBase {
     m_elevatorKrakenRight.setControl(new PositionVoltage(height.in(Units.Inches)));
 
     // Left motor is follower
-    m_elevatorKrakenLeft.setControl(new Follower(m_elevatorKrakenRight.getDeviceID(), true));
+    m_elevatorKrakenLeft.setControl(new Follower(m_elevatorKrakenRight.getDeviceID(), false));
 
     // Updates the last desired position
     lastDesiredPosition = height;

@@ -42,9 +42,9 @@ public final class Constants {
     public final static int k_lefttrig = Axis.kLeftTrigger.value; // Left Trig
     public final static int k_start = Button.kStart.value; // Start Button
     public final static int k_A = Button.kA.value; // A
-    public final static int k_B = Button.kB.value; // A
-    public final static int k_X = Button.kX.value; // A
-    public final static int k_Y = Button.kY.value; // A
+    public final static int k_B = Button.kB.value; // B
+    public final static int k_X = Button.kX.value; // X
+    public final static int k_Y = Button.kY.value; // Y
   }
 
   // Constants for Motor IDs
@@ -65,10 +65,11 @@ public final class Constants {
 
   // Constants for Elevator
   public static final class ElevatorConstants { // TODO: Change us!
-    public static final Measure<Distance> k_coralL1Height = Units.Inches.of(10); 
-    public static final Measure<Distance> k_coralL2Height = Units.Inches.of(20);
-    public static final Measure<Distance> k_coralL3Height = Units.Inches.of(30);
-    public static final Measure<Distance> k_coralL4Height = Units.Inches.of(40);
+    public static final Measure<Distance> k_zeroHeight = Units.Inches.of(0);
+    public static final Measure<Distance> k_coralL1Height = Units.Inches.of(0); 
+    public static final Measure<Distance> k_coralL2Height = Units.Inches.of(8);
+    public static final Measure<Distance> k_coralL3Height = Units.Inches.of(24);
+    public static final Measure<Distance> k_coralL4Height = Units.Inches.of(48.8);
   }
 
   // Constants for Motors
@@ -80,12 +81,13 @@ public final class Constants {
 
   // Constants for PID
   public static final class MotorPIDConstants {
-    public static final double k_elevatorkP = 1;
-    public static final double k_elevatorkI = 0.0;
+    public static final double k_elevatorkP = 0.1;
+    public static final double k_elevatorkI = 0.12;
     public static final double k_elevatorkD = 0.0;
-    public static final double k_elevatorkS = 0.0;
-    public static final double k_elevatorkV = 0.0;
-    public static final double k_elevatorkG = 0.0;
+    public static final double k_elevatorkS = 0.4;
+    public static final double k_elevatorkV = 0.001;
+    public static final double k_elevatorkA = 0.001;
+    public static final double k_elevatorkG = 0.3;
   }
 
   // Constants for Autonomous
