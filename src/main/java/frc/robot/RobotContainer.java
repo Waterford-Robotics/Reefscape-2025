@@ -7,9 +7,10 @@ package frc.robot;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.ElevatorConstants;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.Constants.WristConstants;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
-
+import frc.robot.subsystems.WristSubsystem;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -28,7 +29,9 @@ public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
   private final SwerveSubsystem m_swerveSubsystem = new SwerveSubsystem();
+
   private final ElevatorSubsystem m_elevatorSubsystem = new ElevatorSubsystem();
+  private final WristSubsystem m_wristSubsystem = new WristSubsystem();
 
   // Create New Choosing Option in SmartDashboard for Autos
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -70,6 +73,31 @@ public class RobotContainer {
         )
       );
 
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_rightbump)
+      .onTrue(
+        new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_wrist1Height))
+      );
+
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_leftbump)
+      .onTrue(
+        new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_wrist2Height))
+      );
+
+    new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_righttrig) > 0.05)
+      .whileTrue(
+        new InstantCommand(() -> m_wristSubsystem.intake(), m_wristSubsystem)
+      )
+      .whileFalse(
+        new InstantCommand(() -> m_wristSubsystem.stopShooter(), m_wristSubsystem)
+      );
+
+    new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_lefttrig) > 0.05)
+      .whileTrue(
+        new InstantCommand(() -> m_wristSubsystem.shoot(), m_wristSubsystem)
+      )
+      .whileFalse(
+        new InstantCommand(() -> m_wristSubsystem.stopShooter(), m_wristSubsystem)
+      );
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_B)
       .onTrue(
         new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL2Height), m_elevatorSubsystem)
@@ -84,7 +112,6 @@ public class RobotContainer {
       .onTrue(
         new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL4Height), m_elevatorSubsystem)
       );
-    
 
     // Example Path yay - "start" Button
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_start)
