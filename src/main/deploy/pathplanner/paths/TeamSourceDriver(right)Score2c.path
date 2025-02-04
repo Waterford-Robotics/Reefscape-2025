@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.30982325819671885,
-        "y": 9.670750085382515
+        "x": 2.946977459015548,
+        "y": 4.448695782103243
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.222720286885246,
-        "y": 5.1729529542349715
+        "x": 3.3,
+        "y": 4.0
       },
       "prevControl": {
-        "x": 2.6347976434426226,
-        "y": 4.98564506489071
+        "x": 3.1842341188516134,
+        "y": 4.061592810791768
       },
       "nextControl": null,
       "isLocked": false,
@@ -39,11 +39,11 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 125.0,
+    "rotation": 0.0,
     "rotateFast": true
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Team Side 2c",
   "previewStartingState": {
     "rotation": 125.0,
     "velocity": 0

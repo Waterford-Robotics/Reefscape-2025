@@ -4,12 +4,12 @@
     {
       "anchor": {
         "x": 5.5,
-        "y": 3.15
+        "y": 3.1
       },
       "prevControl": null,
       "nextControl": {
         "x": 4.079660374758884,
-        "y": 0.8789790575916218
+        "y": 0.8289790575916219
       },
       "isLocked": false,
       "linkedName": null
@@ -45,7 +45,7 @@
   "reversed": false,
   "folder": "Opposite Side 1.5c",
   "previewStartingState": {
-    "rotation": 119.82,
+    "rotation": 120.0,
     "velocity": 0
   },
   "useDefaultConstraints": true
