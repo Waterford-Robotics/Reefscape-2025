@@ -1,0 +1,103 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 7.45,
+      "y": 7.9042126873700065
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "TeamBargeCloseScore1c(right)"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreOrSmth"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Team(right)CloseScore1.5c"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "TeamSourceFar(left)Score2c"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreOrSmth"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Team(left)FarScore1.5c"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "TeamSourceFar(right)Score2c"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreOrSmth"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Team(right)FarScore1.5c"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "TeamSourceDriver(left)Score2c"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreOrSmth"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}
