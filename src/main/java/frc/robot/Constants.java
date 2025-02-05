@@ -18,15 +18,25 @@ import frc.robot.subsystems.SwerveSubsystem;
 
 public final class Constants {
 
-  // Constants for Controller IDs
-  public static final class OperatorConstants {
-    public static final int k_driverController = 0;
-  }
+  public static final class ControllerConstants {
+    public static final int kDriverControllerPort = 0;
+    public static final double kDriveDeadband = 0.10;
+
+    public final static int k_start = Button.kStart.value; // Start Button
+    public static final int k_A = Button.kA.value; // A
+    public static final int k_B = Button.kB.value; // B
+    public static final int k_X = Button.kX.value; // X
+    public static final int k_Y = Button.kY.value; // Y
+    public static final int k_dpadRight = 90; // D-Pad Right
+    public static final int k_dpadLeft = 270; // D-Pad Left
+}
+
 
   // Constants for Kraken Drivetrain!
   public static final class SwerveConstants {
     // Must be max physically possible speed
     public static final double k_maxSpeed = edu.wpi.first.math.util.Units.feetToMeters(18.9);
+    public static final double kMaxAngularSpeed = 1.5 * Math.PI; // radians per second
   }
 
   // Constants for controller input!
@@ -152,5 +162,58 @@ public final class Constants {
 
     // Tag Reject Rotation Rate
     public static final int rejectionRotationRate = 720;
+  }
+  public static final class VisionConstants {
+
+    // Name
+    public static final String k_limelightName = "limelight-three";
+
+    // PID for Tag Relative Control in General
+    public static final double kP_aim = 0.04;
+    public static final double kI_aim = 0.000;
+    public static final double kD_aim = 0.000;
+
+    public static final double kP_range = 0.13;
+    public static final double kI_range = 0.0;
+    public static final double kD_range = 0.0;
+
+    public static final double kP_strafe = 0.13;
+    public static final double kI_strafe = 0.0;
+    public static final double kD_strafe = 0.0;
+
+    // Aim/Range
+    public static final double k_aimThreshold = 0.5;
+    public static final double k_rangeThresholdMax = -3.8;
+    public static final double k_rangeThresholdMin = -4.2;
+    public static final double k_rangeTarget = -4;
+
+    // AimNRange Reef Right
+    public static final double k_aimReefRightThresholdMax = 0.5;
+    public static final double k_aimReefRightThresholdMin = -0.5;
+    public static final double k_aimReefRightTarget = 0;
+
+    public static final double k_rangeReefRightThresholdMax = -0.63;
+    public static final double k_rangeReefRightThresholdMin = -0.68;
+    public static final double k_rangeReefRightTarget = -0.65;
+
+    public static final double k_strafeReefRightThresholdMax = 0.20;
+    public static final double k_strafeReefRightThresholdMin = 0.15;
+    public static final double k_strafeReefRightTarget = 0.18;
+
+    // AimNRange Reef Left
+    public static final double k_aimReefLeftThresholdMax = 0.5;
+    public static final double k_aimReefLeftThresholdMin = -0.5;
+    public static final double k_aimReefLeftTarget = 0;
+
+    public static final double k_rangeReefLeftThresholdMax = -0.63;
+    public static final double k_rangeReefLeftThresholdMin = -0.68;
+    public static final double k_rangeReefLeftTarget = -0.65;
+
+    public static final double k_strafeReefLeftThresholdMax = -0.15;
+    public static final double k_strafeReefLeftThresholdMin = -0.20;
+    public static final double k_strafeReefLeftTarget = -0.18;
+
+    public static final double k_tzValidRange = -1.5;
+    public static final double k_yawValidRange = 35;
   }
 }

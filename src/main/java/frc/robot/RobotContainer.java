@@ -4,14 +4,16 @@
 
 package frc.robot;
 
+import frc.robot.Constants.ControllerConstants;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.ElevatorConstants;
-import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.WristConstants;
 import frc.robot.commands.SetElevatorCommand;
 import frc.robot.commands.ZeroElevatorCommand;
 import frc.robot.commands.RunIntakeForSecsCommand;
 import frc.robot.commands.RunShootForSecsCommand;
+import frc.robot.commands.AimNRangeReefLeftCommand;
+import frc.robot.commands.AimNRangeReefRightCommand;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.subsystems.WristSubsystem;
@@ -24,6 +26,7 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 // This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -42,7 +45,7 @@ public class RobotContainer {
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController = new CommandXboxController(OperatorConstants.k_driverController);
+  private final CommandXboxController m_driverController = new CommandXboxController(ControllerConstants.kDriverControllerPort);
 
   // Command Chain for Scoring on L2
   SequentialCommandGroup scoreL2Command = new SequentialCommandGroup(
@@ -163,6 +166,16 @@ public class RobotContainer {
       .onTrue(
         new InstantCommand(() -> m_swerveSubsystem.followPathAutobuilderCommand("Example Path RED"), m_swerveSubsystem)
       );
+
+    new POVButton(m_driverController.getHID(), ControllerConstants.k_dpadRight)
+    .onTrue(
+      new AimNRangeReefRightCommand(m_swerveSubsystem)
+    );
+
+    new POVButton(m_driverController.getHID(), ControllerConstants.k_dpadLeft)
+    .onTrue(
+      new AimNRangeReefLeftCommand(m_swerveSubsystem)
+    );
   }
   
   // Commands!
