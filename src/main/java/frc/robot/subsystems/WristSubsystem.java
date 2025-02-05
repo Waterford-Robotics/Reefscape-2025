@@ -5,7 +5,6 @@ import com.ctre.phoenix6.controls.NeutralOut;
 import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.GravityTypeValue;
-import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.units.Angle;
@@ -16,7 +15,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
 import frc.robot.Constants.MotorIDConstants;
 import frc.robot.Constants.MotorPIDConstants;
-import frc.robot.Constants.WristConstants;
 
 public class WristSubsystem extends SubsystemBase{
 
@@ -33,7 +31,7 @@ public class WristSubsystem extends SubsystemBase{
     m_wrist = new TalonFX(MotorIDConstants.k_wristKrakenID, "Elevator/Coral");
     m_shooter = new TalonFX(MotorIDConstants.k_shooterKrakenID, "Elevator/Coral");
 
-    lastDesiredPosition = Units.Radians.of(0);
+    lastDesiredPosition = Units.Rotations.of(0);
 
     wristConfig = new TalonFXConfiguration();
     wristConfig.Slot0.kP = MotorPIDConstants.k_wristP;
@@ -43,16 +41,12 @@ public class WristSubsystem extends SubsystemBase{
     wristConfig.Slot0.kV = MotorPIDConstants.k_wristV;
     wristConfig.Slot0.kG = MotorPIDConstants.k_wristG;
 
-    // wristConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_wristRampRate;
-    // wristConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_wristClosedMaxSpeed;
-    // wristConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_wristClosedMaxSpeed;
     wristConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     wristConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_supplyCurrentLimit;
-    // wristConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
     wristConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; 
-    wristConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Radians.of(0.7).in(Units.Radians); // TODO: Check me
+    wristConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Rotations.of(0.7).in(Units.Rotations); // TODO: Check me
     wristConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    wristConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Radians.of(2).in(Units.Radians); // Starting position
+    wristConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Rotations.of(2).in(Units.Rotations); // Starting position
     wristConfig.Slot0.GravityType = GravityTypeValue.Arm_Cosine;
 
     wristConfig.Feedback.SensorToMechanismRatio = 0.4545;
@@ -80,11 +74,11 @@ public class WristSubsystem extends SubsystemBase{
   }
 
     public Measure<Angle> getWristPosition(){
-      return Units.Radians.of(m_wrist.get());
+      return Units.Rotations.of(m_wrist.get());
     }
 
     public void setPosition(Measure<Angle> angle){
-      m_wrist.setControl(new PositionVoltage(angle.in(Units.Radians)));
+      m_wrist.setControl(new PositionVoltage(angle.in(Units.Rotations)));
       lastDesiredPosition = angle;
     }
 
@@ -93,11 +87,11 @@ public class WristSubsystem extends SubsystemBase{
     }
 
     public void resetSensorPosition(Measure<Angle> setpoint) {
-      m_wrist.setPosition(setpoint.in(Units.Radians));
+      m_wrist.setPosition(setpoint.in(Units.Rotations));
     }
 
     public void shoot(){
-      m_shooter.set(0.5);
+      m_shooter.set(0.1);
     }
 
     public void stopShooter(){
@@ -105,13 +99,14 @@ public class WristSubsystem extends SubsystemBase{
     }
 
     public void intake(){
-      // m_wrist.setPosition(WristConstants.k_coralIntakeHeight.in(Units.Radians));
-      m_shooter.set(-0.5);
+      // m_wrist.setPosition(WristConstants.k_coralIntakeHeight.in(Units.Rotations));
+      m_shooter.set(-0.1);
     }
 
     public void periodic() {
       // This method will be called once per scheduler run
       SmartDashboard.putNumber("Wrist/Pos", m_wrist.getPosition().getValueAsDouble());
+      SmartDashboard.putString("Wrist/Units", m_wrist.getPosition().getUnits());
       SmartDashboard.putNumber("Wrist/CLO", m_wrist.getClosedLoopOutput().getValueAsDouble());
       SmartDashboard.putNumber("Wrist/Output", m_wrist.get());
       SmartDashboard.putNumber("Wrist/Inverted", m_wrist.getAppliedRotorPolarity().getValueAsDouble());

@@ -70,37 +70,41 @@ public final class Constants {
   }
 
   // Constants for Elevator
-  public static final class ElevatorConstants { // TODO: Change us!
+  public static final class ElevatorConstants {
     public static final Measure<Distance> k_zeroHeight = Units.Inches.of(0);
     public static final Measure<Distance> k_coralL1Height = Units.Inches.of(0); 
-    public static final Measure<Distance> k_coralL2Height = Units.Inches.of(8);
-    public static final Measure<Distance> k_coralL3Height = Units.Inches.of(24);
+    public static final Measure<Distance> k_coralL2Height = Units.Inches.of(6);
+    public static final Measure<Distance> k_coralL3Height = Units.Inches.of(22);
     public static final Measure<Distance> k_coralL4Height = Units.Inches.of(48.8);
   }
 
   // Constants for Wrist
   public static final class WristConstants { // TODO: Change us!
-    public static final Measure<Angle> k_wrist1Height = Units.Radians.of(0.7); 
-    public static final Measure<Angle> k_wrist2Height = Units.Radians.of(0.7);
-    public static final Measure<Angle> k_coralIntakeAngle = Units.Radians.of(1);
+    public static final Measure<Angle> k_wrist1Height = Units.Rotations.of(0.96); 
+    public static final Measure<Angle> k_wrist2Height = Units.Rotations.of(0.96);
+    public static final Measure<Angle> k_coralIntakeAngle = Units.Rotations.of(1.3);
   }
 
   // Constants for Motors
   public static final class MotorConstants {
-    public static final double k_elevatorRampRate = 0.05;
+    public static final double k_elevatorRampRate = 0.25;
     public static final double k_elevatorClosedMaxSpeed = 0.8;
     public static final int k_elevatorSupplyCurrentLimit = 40;
 
     public static final double k_shooterRampRate = 0.05;
-    public static final double k_shooterClosedMaxSpeed = 0.3;
+    public static final double k_shooterClosedMaxSpeed = 0.1;
     public static final int k_supplyCurrentLimit = 40;
   }
 
   // Constants for PID
   public static final class MotorPIDConstants {
-    public static final double k_elevatorkP = 0.1;
-    public static final double k_elevatorkI = 0.12;
-    public static final double k_elevatorkD = 0.0;
+    public static final double k_elevatorkP = 0.3;
+    public static final double k_elevatorkI = 0.1;
+    public static final double k_elevatorkD = 0.15;
+    public static final double k_elevatorkS = 0.4;
+    public static final double k_elevatorkV = 0.001;
+    public static final double k_elevatorkA = 0.001;
+    public static final double k_elevatorkG = 0.3;
 
     public static final double k_wristP = 0.0;
     public static final double k_wristI = 0.0;
@@ -115,12 +119,6 @@ public final class Constants {
     public static final double k_shooterkS = 0.0;
     public static final double k_shooterkV = 0.0;
     public static final double k_shooterkG = 0.0;
-
-    public static final double k_elevatorkS = 0.4;
-    public static final double k_elevatorkV = 0.001;
-    public static final double k_elevatorkA = 0.001;
-    public static final double k_elevatorkG = 0.3;
-
   }
 
   // Constants for Autonomous
@@ -141,6 +139,9 @@ public final class Constants {
     new ReplanningConfig()
     // Default path replanning config. See the API for the options here
     );
+    
+    public static final double k_elevatorRaiseTime = 0.5;
+    public static final double k_elevatorLowerTime = 6.0;
   }
 
   // Limelight stuff yay

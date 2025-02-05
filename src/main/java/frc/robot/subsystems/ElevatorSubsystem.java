@@ -10,7 +10,6 @@ import com.ctre.phoenix6.controls.NeutralOut;
 import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.GravityTypeValue;
-import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.units.Distance;
@@ -56,11 +55,8 @@ public class ElevatorSubsystem extends SubsystemBase {
 
     // Kraken Configs
     // krakenConfig.ClosedLoopRamps.DutyCycleClosedLoopRampPeriod = MotorConstants.k_elevatorRampRate;
-    // krakenConfig.MotorOutput.PeakForwardDutyCycle = MotorConstants.k_elevatorClosedMaxSpeed;
-    // krakenConfig.MotorOutput.PeakReverseDutyCycle = -MotorConstants.k_elevatorClosedMaxSpeed;
     krakenConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     krakenConfig.CurrentLimits.SupplyCurrentLimit = MotorConstants.k_elevatorSupplyCurrentLimit;
-    // krakenConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // TODO: Check
 
     krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true; // No breaking elevator
     krakenConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Inches.of(49).in(Units.Inches); // TODO: Check me
@@ -108,6 +104,14 @@ public class ElevatorSubsystem extends SubsystemBase {
   public void resetSensorPosition(Measure<Distance> setpoint) {
     m_elevatorKrakenRight.setPosition(setpoint.in(Units.Inches));
     m_elevatorKrakenLeft.setPosition(setpoint.in(Units.Inches));
+  }
+
+  public double getCurrentPosition() {
+    return m_elevatorKrakenRight.getPosition().getValueAsDouble();
+  }
+
+  public double getCurrentVelocity() {
+    return m_elevatorKrakenRight.getVelocity().getValueAsDouble();
   }
 
   public void periodic() {

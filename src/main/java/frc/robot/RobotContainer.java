@@ -8,6 +8,10 @@ import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.ElevatorConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.WristConstants;
+import frc.robot.commands.SetElevatorCommand;
+import frc.robot.commands.ZeroElevatorCommand;
+import frc.robot.commands.RunIntakeForSecsCommand;
+import frc.robot.commands.RunShootForSecsCommand;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.subsystems.WristSubsystem;
@@ -16,6 +20,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -38,6 +43,39 @@ public class RobotContainer {
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController = new CommandXboxController(OperatorConstants.k_driverController);
+
+  // Command Chain for Scoring on L2
+  SequentialCommandGroup scoreL2Command = new SequentialCommandGroup(
+    new ParallelCommandGroup(
+      new SetElevatorCommand(m_elevatorSubsystem, "L2"),
+      new RunIntakeForSecsCommand(m_wristSubsystem, 1.5)
+    ),
+    new RunShootForSecsCommand(m_wristSubsystem, 1),
+    new SetElevatorCommand(m_elevatorSubsystem, "zero"),
+    new ZeroElevatorCommand(m_elevatorSubsystem)
+  );
+
+  // Command Chain for Scoring on L3
+  SequentialCommandGroup scoreL3Command = new SequentialCommandGroup(
+    new ParallelCommandGroup(
+      new SetElevatorCommand(m_elevatorSubsystem, "L3"),
+      new RunIntakeForSecsCommand(m_wristSubsystem, 1.5)
+    ),
+    new RunShootForSecsCommand(m_wristSubsystem, 1),
+    new SetElevatorCommand(m_elevatorSubsystem, "zero"),
+    new ZeroElevatorCommand(m_elevatorSubsystem)
+  );
+
+  // Command Chain for Scoring on L4
+  SequentialCommandGroup scoreL4Command = new SequentialCommandGroup(
+    new ParallelCommandGroup(
+      new SetElevatorCommand(m_elevatorSubsystem, "L4"),
+      new RunIntakeForSecsCommand(m_wristSubsystem, 1.5)
+    ),
+    new RunShootForSecsCommand(m_wristSubsystem, 1),
+    new SetElevatorCommand(m_elevatorSubsystem, "zero"),
+    new ZeroElevatorCommand(m_elevatorSubsystem)
+  );
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -63,8 +101,7 @@ public class RobotContainer {
   // Trigger & Button Bindings!
   private void configureBindings() {
 
-    // Raise Elevator to L1 - "A" Button
-    
+    // Lower Elevator Manually - "A" Button
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_A)
       .onTrue(
         new SequentialCommandGroup(
@@ -72,7 +109,26 @@ public class RobotContainer {
           new InstantCommand(() -> m_elevatorSubsystem.setNeutral(), m_elevatorSubsystem)
         )
       );
+    
+    // Raise Elevator to L2 Manually - "B" Button
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_B)
+      .onTrue(
+        scoreL2Command
+      );
 
+    // Raise Elevator to L3 Manually - "X" Button
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_X)
+      .onTrue(
+        scoreL3Command
+      );
+
+    // Score Coral on L3 and Zero Elevator - "Y" Button
+    new JoystickButton(m_driverController.getHID(), DriveConstants.k_Y)
+      .onTrue(
+        scoreL4Command
+      );
+
+    /*
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_rightbump)
       .onTrue(
         new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_wrist1Height))
@@ -82,7 +138,9 @@ public class RobotContainer {
       .onTrue(
         new InstantCommand(() -> m_wristSubsystem.setPosition(WristConstants.k_wrist2Height))
       );
+    */
 
+    // Intake Manually - Right Trig
     new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_righttrig) > 0.05)
       .whileTrue(
         new InstantCommand(() -> m_wristSubsystem.intake(), m_wristSubsystem)
@@ -91,26 +149,13 @@ public class RobotContainer {
         new InstantCommand(() -> m_wristSubsystem.stopShooter(), m_wristSubsystem)
       );
 
+    // Shoot Manually - Left Trig
     new Trigger(() -> m_driverController.getRawAxis(DriveConstants.k_lefttrig) > 0.05)
       .whileTrue(
         new InstantCommand(() -> m_wristSubsystem.shoot(), m_wristSubsystem)
       )
       .whileFalse(
         new InstantCommand(() -> m_wristSubsystem.stopShooter(), m_wristSubsystem)
-      );
-    new JoystickButton(m_driverController.getHID(), DriveConstants.k_B)
-      .onTrue(
-        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL2Height), m_elevatorSubsystem)
-      );
-
-    new JoystickButton(m_driverController.getHID(), DriveConstants.k_X)
-      .onTrue(
-        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL3Height), m_elevatorSubsystem)
-      );
-
-    new JoystickButton(m_driverController.getHID(), DriveConstants.k_Y)
-      .onTrue(
-        new InstantCommand(() -> m_elevatorSubsystem.setPosition(ElevatorConstants.k_coralL4Height), m_elevatorSubsystem)
       );
 
     // Example Path yay - "start" Button
