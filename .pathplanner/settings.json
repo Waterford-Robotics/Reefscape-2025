@@ -3,18 +3,20 @@
   "robotLength": 0.9,
   "holonomicMode": true,
   "pathFolders": [
-    "Leave 0c + center 1c",
-    "Opposite Side 2c",
+    "0c leaves",
+    "1c OppoWTag",
+    "1c TeamWTag",
+    "2c OppoWTag",
+    "2c TeamWTag",
+    "Old paths",
     "Opposite Side 1.5c",
-    "Opposite Side 1c",
-    "Team Side 1.5c",
-    "Team Side 1c",
-    "Team Side 2c"
+    "Team Side 1.5c"
   ],
   "autoFolders": [
-    "leaves",
+    "Old Autos",
+    "0c leaves",
     "score 1.5c",
-    "score 1c"
+    "1c"
   ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,

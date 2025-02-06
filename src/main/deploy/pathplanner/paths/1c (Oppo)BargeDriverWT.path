@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.3956072921925164,
-        "y": 2.85690202697341
+        "x": 2.5259612349389595,
+        "y": 1.3682408883346515
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.3,
-        "y": 4.35
+        "x": 2.4,
+        "y": 3.75
       },
       "prevControl": {
-        "x": 3.029167869588829,
-        "y": 3.6058948372325195
+        "x": 1.371539824501537,
+        "y": 2.5243288910096346
       },
       "nextControl": null,
       "isLocked": false,
@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Old paths",
+  "folder": "1c OppoWTag",
   "previewStartingState": {
     "rotation": 180.0,
     "velocity": 0
