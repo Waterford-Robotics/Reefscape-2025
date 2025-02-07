@@ -17,15 +17,15 @@
     {
       "anchor": {
         "x": 1.7,
-        "y": 7.6953658640710385
+        "y": 7.7
       },
       "prevControl": {
         "x": 2.199487704922322,
-        "y": 7.632929900962794
+        "y": 7.637564036891756
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "SourceTeam"
     }
   ],
   "rotationTargets": [],

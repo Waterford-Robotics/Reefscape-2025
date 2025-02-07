@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 1.6982581967213115,
+        "x": 1.7,
         "y": 7.7
       },
       "prevControl": {
-        "x": 2.1103355532786883,
+        "x": 2.1120773565573767,
         "y": 7.512692110655738
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "SourceTeam"
     }
   ],
   "rotationTargets": [],

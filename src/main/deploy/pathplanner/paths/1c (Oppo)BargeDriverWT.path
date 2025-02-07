@@ -12,20 +12,20 @@
         "y": 1.3682408883346515
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "BargeOppo"
     },
     {
       "anchor": {
-        "x": 2.4,
-        "y": 3.75
+        "x": 2.9,
+        "y": 4.2
       },
       "prevControl": {
-        "x": 1.371539824501537,
-        "y": 2.5243288910096346
+        "x": 1.871539824501537,
+        "y": 2.974328891009635
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Driver"
     }
   ],
   "rotationTargets": [],

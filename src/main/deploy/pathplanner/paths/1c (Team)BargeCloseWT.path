@@ -4,28 +4,28 @@
     {
       "anchor": {
         "x": 7.45,
-        "y": 7.9042126873700065
+        "y": 7.9
       },
       "prevControl": null,
       "nextControl": {
         "x": 6.510307379214092,
-        "y": 7.562192544044338
+        "y": 7.557979856674332
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "BargeTeam"
     },
     {
       "anchor": {
-        "x": 5.4,
-        "y": 6.5
+        "x": 5.6,
+        "y": 5.7
       },
       "prevControl": {
-        "x": 6.042787609686539,
-        "y": 7.266044443118978
+        "x": 6.2427876096865385,
+        "y": 6.466044443118978
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "CloseTeam"
     }
   ],
   "rotationTargets": [],

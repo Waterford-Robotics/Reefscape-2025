@@ -12,20 +12,20 @@
         "y": 4.05
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "BargeCenter"
     },
     {
       "anchor": {
-        "x": 6.403616510076741,
-        "y": 4.049455820124794
+        "x": 6.5,
+        "y": 4.2
       },
       "prevControl": {
-        "x": 6.876675305602174,
-        "y": 4.049455820124794
+        "x": 6.973058795525433,
+        "y": 4.2
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Center"
     }
   ],
   "rotationTargets": [],

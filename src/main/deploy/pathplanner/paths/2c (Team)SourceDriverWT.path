@@ -12,20 +12,20 @@
         "y": 4.700000000000001
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "SourceTeam"
     },
     {
       "anchor": {
-        "x": 2.4,
-        "y": 4.25
+        "x": 2.9,
+        "y": 4.2
       },
       "prevControl": {
-        "x": 1.9,
-        "y": 4.25
+        "x": 2.4,
+        "y": 4.2
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Driver"
     }
   ],
   "rotationTargets": [],

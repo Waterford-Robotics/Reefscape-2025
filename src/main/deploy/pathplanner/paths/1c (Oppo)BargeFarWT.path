@@ -12,20 +12,20 @@
         "y": 1.0209445330007907
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "BargeOppo"
     },
     {
       "anchor": {
-        "x": 3.721183401639344,
-        "y": 2.0
+        "x": 3.8,
+        "y": 2.7
       },
       "prevControl": {
-        "x": 4.17113472841992,
-        "y": 1.4637688898167154
+        "x": 4.249951326780577,
+        "y": 2.1637688898167156
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "FarOppo"
     }
   ],
   "rotationTargets": [],

@@ -12,20 +12,20 @@
         "y": 7.092231378165744
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "SourceTeam"
     },
     {
       "anchor": {
-        "x": 5.569287909836066,
-        "y": 6.5
+        "x": 5.6,
+        "y": 5.7
       },
       "prevControl": {
-        "x": 5.5171934565359875,
-        "y": 6.795442325903663
+        "x": 5.547905546699921,
+        "y": 5.995442325903663
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "CloseTeam"
     }
   ],
   "rotationTargets": [],

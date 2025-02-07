@@ -12,20 +12,20 @@
         "y": 1.3077686218342564
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "SourceOppo"
     },
     {
       "anchor": {
-        "x": 5.4,
-        "y": 2.0
+        "x": 5.6,
+        "y": 2.7
       },
       "prevControl": {
-        "x": 5.347905546699921,
-        "y": 1.7045576740963375
+        "x": 5.54790554669992,
+        "y": 2.4045576740963375
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "CloseOppo"
     }
   ],
   "rotationTargets": [],

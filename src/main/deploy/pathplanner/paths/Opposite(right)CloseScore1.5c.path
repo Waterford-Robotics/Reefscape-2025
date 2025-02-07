@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 1.7026901350234207,
+        "x": 1.7,
         "y": 0.7
       },
       "prevControl": {
-        "x": 1.7228403141361222,
+        "x": 1.7201501791127014,
         "y": 0.6999999999999988
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "SourceOppo"
     }
   ],
   "rotationTargets": [],

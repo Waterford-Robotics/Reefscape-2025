@@ -20,12 +20,12 @@
         "y": 0.7
       },
       "prevControl": {
-        "x": 1.6899249104454612,
-        "y": 0.7604505373421703
+        "x": 1.69013606076405,
+        "y": 0.7591836354303239
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "SourceOppo"
     }
   ],
   "rotationTargets": [],
