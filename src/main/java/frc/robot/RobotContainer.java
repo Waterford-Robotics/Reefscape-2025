@@ -113,19 +113,19 @@ public class RobotContainer {
         )
       );
     
-    // Raise Elevator to L2 Manually - "B" Button
+    // Score Coral on L2 and Zero Elevator - "B" Button
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_B)
       .onTrue(
         scoreL2Command
       );
 
-    // Raise Elevator to L3 Manually - "X" Button
+    // Score Coral on L3 and Zero Elevator - "X" Button
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_X)
       .onTrue(
         scoreL3Command
       );
 
-    // Score Coral on L3 and Zero Elevator - "Y" Button
+    // Score Coral on L4 and Zero Elevator - "Y" Button
     new JoystickButton(m_driverController.getHID(), DriveConstants.k_Y)
       .onTrue(
         scoreL4Command
