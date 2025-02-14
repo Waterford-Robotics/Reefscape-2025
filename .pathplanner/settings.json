@@ -1,0 +1,29 @@
+{
+  "robotWidth": 0.9,
+  "robotLength": 0.9,
+  "holonomicMode": true,
+  "pathFolders": [
+    "00 empty folder for sorting",
+    "0c leaves",
+    "1c CenterWTag",
+    "1c OppoWTag",
+    "1c TeamWTag",
+    "2c OppoWTag",
+    "2c TeamWTag",
+    "z Old paths",
+    "Opposite Side 1.5c",
+    "Team Side 1.5c"
+  ],
+  "autoFolders": [
+    "0c leaves",
+    "1c",
+    "1.5c (not completed)",
+    "2c (not completed)",
+    "z Old Autos"
+  ],
+  "defaultMaxVel": 3.0,
+  "defaultMaxAccel": 3.0,
+  "defaultMaxAngVel": 540.0,
+  "defaultMaxAngAccel": 720.0,
+  "maxModuleSpeed": 4.5
+}

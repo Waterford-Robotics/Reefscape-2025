@@ -1,0 +1,31 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 7.5,
+      "y": 7.9042126873700065
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "TeamBargeCloseScore1c(right)"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreOrSmth"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "z Old Autos",
+  "choreoAuto": false
+}

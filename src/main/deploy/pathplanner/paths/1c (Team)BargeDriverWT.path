@@ -1,0 +1,58 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.45,
+        "y": 7.9
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.5259612349389595,
+        "y": 7.031759111665349
+      },
+      "isLocked": false,
+      "linkedName": "BargeTeam"
+    },
+    {
+      "anchor": {
+        "x": 2.9,
+        "y": 4.2
+      },
+      "prevControl": {
+        "x": 1.874496367709833,
+        "y": 5.422147638000218
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Driver"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": -56.03548587861192,
+      "rotateFast": false
+    }
+  ],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "1c TeamWTag",
+  "previewStartingState": {
+    "rotation": 180.0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

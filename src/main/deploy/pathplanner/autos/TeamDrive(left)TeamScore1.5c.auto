@@ -1,0 +1,37 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 7.5,
+      "y": 7.9042126873700065
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "TeamBargeDriverScore1c(left)"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreOrSmth"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Driver(left)(Team)Score1.5c"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "z Old Autos",
+  "choreoAuto": false
+}

@@ -1,0 +1,62 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 7.45,
+      "y": 7.9042126873700065
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "1c (Team)BargeCloseWT"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "SetElevatorCommand"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AimNRangeReefLeftCommand"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "RunShootForSecsCommand"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Team(right)CloseScore1.5c"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ZeroElevatorCommand"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

@@ -1,0 +1,56 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 7.45,
+      "y": 0.5
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "1c (Oppo)BargeDriverWT"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "SetElevatorCommand"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AimNRangeReefLeftCommand"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "RunShootForSecsCommand"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ZeroElevatorCommand"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "1c",
+  "choreoAuto": false
+}

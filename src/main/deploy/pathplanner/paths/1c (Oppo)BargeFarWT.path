@@ -1,0 +1,52 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.45,
+        "y": 0.5
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.495576740963376,
+        "y": 1.0209445330007907
+      },
+      "isLocked": false,
+      "linkedName": "BargeOppo"
+    },
+    {
+      "anchor": {
+        "x": 3.8,
+        "y": 2.7
+      },
+      "prevControl": {
+        "x": 4.249951326780577,
+        "y": 2.1637688898167156
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "FarOppo"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 60.0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "1c OppoWTag",
+  "previewStartingState": {
+    "rotation": 180.0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

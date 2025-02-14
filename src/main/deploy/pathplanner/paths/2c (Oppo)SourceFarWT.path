@@ -1,0 +1,52 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.7,
+        "y": 0.7
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.5660254037844386,
+        "y": 1.1999999999999997
+      },
+      "isLocked": false,
+      "linkedName": "SourceOppo"
+    },
+    {
+      "anchor": {
+        "x": 3.8,
+        "y": 2.7
+      },
+      "prevControl": {
+        "x": 3.36698729810778,
+        "y": 2.45
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "FarOppo"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 60.0,
+    "rotateFast": true
+  },
+  "reversed": false,
+  "folder": "2c OppoWTag",
+  "previewStartingState": {
+    "rotation": -125.0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

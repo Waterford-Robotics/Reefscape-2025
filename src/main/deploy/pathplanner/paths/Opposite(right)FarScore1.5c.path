@@ -1,0 +1,52 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 4.15,
+        "y": 2.95
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.6963894284128753,
+        "y": 1.4650141046984828
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.7,
+        "y": 0.7
+      },
+      "prevControl": {
+        "x": 2.1565240011098776,
+        "y": 1.1463790233074365
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "SourceOppo"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -125.0,
+    "rotateFast": true
+  },
+  "reversed": false,
+  "folder": "Opposite Side 1.5c",
+  "previewStartingState": {
+    "rotation": 60.0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

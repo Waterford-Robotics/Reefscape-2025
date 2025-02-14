@@ -1,0 +1,52 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.7,
+        "y": 7.7
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 5.146827135542728,
+        "y": 7.092231378165744
+      },
+      "isLocked": false,
+      "linkedName": "SourceTeam"
+    },
+    {
+      "anchor": {
+        "x": 5.6,
+        "y": 5.7
+      },
+      "prevControl": {
+        "x": 5.547905546699921,
+        "y": 5.995442325903663
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "CloseTeam"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -120.0,
+    "rotateFast": true
+  },
+  "reversed": false,
+  "folder": "2c TeamWTag",
+  "previewStartingState": {
+    "rotation": 125.0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}
