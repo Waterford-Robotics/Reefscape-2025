@@ -216,4 +216,8 @@ public final class Constants {
     public static final double k_tzValidRange = -1.5;
     public static final double k_yawValidRange = 35;
   }
+
+  public static final class LEDConstants {
+    public static final int blinkinPort = 0;
+  }
 }
