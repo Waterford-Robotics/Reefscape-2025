@@ -24,24 +24,31 @@ public class LEDSubsystem extends SubsystemBase {
         blinkin.set(-0.87);
     }
 
-    public void setBlueShot() {
-        blinkin.set(-0.83);
+    public void setBpmOcean() {
+        blinkin.set(-0.65);
     }
 
-    public void setRainbowTwinkle() {
-        blinkin.set(-0.55);
+    public void setFireLarge() {
+        blinkin.set(-0.57);
     }
 
     public void turnOff() {
         blinkin.set(0);
     }
 
-    public void setHotPink() {
-        blinkin.set(0.57);
+    public void setColorWavesLava() {
+        blinkin.set(-0.34);
     }
 
-    public void setAqua() {
-        blinkin.set(0.81);
+    public void setE2EB2B() {
+        blinkin.set(-0.03);
+    }
+
+    public void setSparkle221() {
+        blinkin.set(0.39);
+    }
+
+    public void setTwinkleForest() {
+        blinkin.set(-0.47);
     }
 }
-
